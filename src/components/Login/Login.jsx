@@ -45,7 +45,7 @@ export default function Login() {
       
     let respone = await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`,val)
     .then((resp)=>{console.log(resp);
-      navigate(' ')
+      navigate('/')
       setloading(false)
       getAddProduct()
       localStorage.setItem("getToken",resp.data.token)
