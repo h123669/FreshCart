@@ -60,12 +60,10 @@ export default function ProductDetails() {
   }
   
     
-    useEffect(() => {
-      getSpecificProduct(id)
-      relatedProduct()
-
-    })
-    
+  useEffect(() => {
+    getSpecificProduct(id);
+    relatedProduct();
+  }, [id, category]);
     
     
   return (
@@ -109,10 +107,9 @@ export default function ProductDetails() {
 
     {relatedProducts.map((product) => {
   return (
-    
       <div className='p-3 sm:w-1/2 md:w-1/3 lg:w-1/6' key={product.id} > 
-      {/* <Link to={`ProductDetails/${product.id}/${product.category.name}`}> */}
-      <div className='shadow-md p-3'>
+      <Link to={`/ProductDetails/${product.id}/${product.category.name}`}>      
+        <div className='shadow-md p-3'>
           <img src={product.imageCover} alt="" />
           <span className='text-green-300 text-xl'>{product.category.name}</span>
           <p>{product.title.split(" ").slice(0,2).join(" ")}</p>
@@ -121,7 +118,7 @@ export default function ProductDetails() {
             <p><i className="fa-solid fa-star text-yellow-400"></i>{product.ratingsAverage}</p>
           </div>
         </div>
-      {/* </Link> */}
+      </Link>
       <div className="flex justify-center items-center">
       <button onClick={()=>{
         addproductTocart(product._id)

@@ -16,9 +16,8 @@ export default function ProtectRoutes(props) {
     
     
     const [count, setcount] = useState(0)
-  return (
-    <>
-    <div className='p-32'>
+  return (<>
+    <div  className='p-32'>
       <p>lorem100</p>
     </div>
     
